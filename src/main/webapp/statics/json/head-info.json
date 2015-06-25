@@ -1,0 +1,14 @@
+{
+	"success": true,
+	"message": "message",
+	"data": {
+		"logoSrc": "images/logo.png",
+		"qrCodeSrc": "images/qr-code.jpg",
+		"upbangMsgTotal": 1000,
+		"switchMsgItems": [
+			{"text":"编辑短信内容#微信墙#+您想说的话 到 1069-0133-0101-1350 即可上墙"},
+			{"text":"images/qr-code.jpgimages/qr-code.jpgimages/qr-code.jpgimages/qr-code.jpgimages/qr-code.jpg"},
+			{"text":"images/qr-code.jpgimages/qr-code.jpgimages/qr-code.jpgimages/qr-code.jpgimages/qr-code.jpg"}
+		]
+	}
+}

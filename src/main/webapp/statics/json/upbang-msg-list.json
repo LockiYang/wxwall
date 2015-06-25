@@ -1,0 +1,21 @@
+{
+	"success": true,
+	"message": "message",
+	"total": 100,
+	"items": [
+		{
+			"nick": "小红帽",
+			"avatar": "images/qr-code.jpg",
+			"messageText": "",
+			"messagePhoto": "images/messagePhoto.png",
+			"createTime": "1424055345601"
+		},
+		{
+			"nick": "小红帽",
+			"avatar": "images/qr-code.jpg",
+			"messageText": "<img src=\"images/qr-code.jpg\">",
+			"messagePhoto": "",
+			"createTime": "1424055345601"
+		}
+	]
+}

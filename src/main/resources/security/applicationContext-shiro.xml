@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+						http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+						http://www.springframework.org/schema/util 
+						http://www.springframework.org/schema/util/spring-util-4.0.xsd"
+	default-lazy-init="true">
+	
+	<!-- 安全管理器 -->
+	<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+		<property name="realm" ref="shiroDbRealm" />
+		<property name="cacheManager" ref="shiroEhcacheManager" />
+	</bean>
+	
+	<!-- 自定义的Realm-->
+	<bean id="shiroDbRealm" class="com.wxwall.modules.user.service.ShiroDbRealm">
+		<property name="userService" ref="userService"/>
+	</bean>
+	
+	<!-- Shiro的WEB过滤器 -->
+	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+		<property name="securityManager" ref="securityManager" />
+		<property name="loginUrl" value="/login" />
+		<property name="successUrl" value="/activity/list" />
+		<property name="filterChainDefinitions">
+			<value>
+				/user/** = authc
+				/vip/** = authc
+				/activity/** = authc
+				/func/** = authc
+				/login = authc
+				/logout = logout
+				/admin/** = roles[admin]
+				/** = anon
+				
+			</value>
+		</property>
+		<property name="filters">
+			<util:map>
+				<entry key="authc" value-ref="wxwallFormAuthenticationFilter"/>
+			</util:map>
+		</property>
+	</bean>
+	
+	<!-- 自定义过滤器 -->
+	<bean id="wxwallFormAuthenticationFilter" class="com.wxwall.modules.user.web.filter.WxwallFormAuthenticationFilter"></bean>
+	
+	<!-- 用户授权信息Cache, 采用EhCache -->
+	<bean id="shiroEhcacheManager" class="org.apache.shiro.cache.ehcache.EhCacheManager">
+		<property name="cacheManagerConfigFile" value="classpath:security/ehcache-shiro.xml"/>
+	</bean>
+	
+	<!-- Shiro的生命周期处理器 -->
+	<!-- <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/> -->
+
+</beans>

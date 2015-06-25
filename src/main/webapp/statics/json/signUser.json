@@ -1,0 +1,11 @@
+{
+  "success" : true,
+  "message" : "",
+  "data" : {
+    "avatar" : "http://wx.qlogo.cn/mmopen/WNI4AV2ickKOxromD4SorPy3qOFibWecwk9SB6XiasDKr4vE8cZ6SU44dyYD5ekicjfbgSsbcKegTWibezIBOrzytAibUIYZqUyUa3/0",
+    "nickName" : "枫叶"
+  },
+  "errorCode" : 0,
+  "total" : 0,
+  "items" : [ ]
+}

@@ -1,0 +1,9 @@
+
+.register {
+	width: 474px;
+	margin: 0 auto;
+	padding-top: 20em;
+}
+#register-form .ui-input {
+	width: 20em;
+}

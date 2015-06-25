@@ -1,0 +1,92 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>登录</title>
+<link rel="stylesheet" href="../css/css-common.css" />
+<link rel="stylesheet" href="../css/css-index.css" />
+<script type="text/javascript" src="../plugins/jquery-1.8.3.min.js"></script>
+<script type="text/javascript" src="../plugins/jquery.SuperSlide.2.1.1.js"></script>
+<script type="text/javascript" src="../js/js-common.js"></script>
+</head>
+<body>
+
+	<div id="header" class="header">
+		<div class="width">
+			<div class="fl">
+				<a href="#"> <img src="../images/index-logo.png" />
+				</a>
+			</div>
+			<div class="fr">
+				<ul>
+					<li class="select"><a href="#">首页</a></li>
+					<li><a href="#">功能模块</a></li>
+					<li><a href="#">随变</a></li>
+					<li><a href="#">注册</a></li>
+					<li><a href="#">登录</a></li>
+					<li><a href="#" class="demo" target="_blank" rel="nofollow">演示</a></li>
+					<p class="cl"></p>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="wrap-login">
+		<div class="login-width cl">
+			<div class="with-login-img"></div>
+			<div class="regist-right">
+				<form class="form-horizontal" method="post" autocomplete="off"
+					action="" enctype="multipart/form-data">
+					<div class="txt-bar">
+						<label> <input name="email" type="text" data-js="js_email">
+						</label> <span class="tips js_email">邮箱</span>
+					</div>
+					<div class="txt-bar">
+						<label> <input name="password" type="password"
+							data-js="js_pwd"> <span class="tips js_pwd">密码</span>
+						</label>
+					</div>
+					<div class="txt-bar">
+						<label> <input name="repassword" type="password"
+							data-js="js_repwd"> <span class="tips js_repwd">邀请码</span>
+						</label>
+					</div>
+					<p class="user-notice">
+						<label> <i class="icon-select icon-selected"></i> <span>我已阅读并同意</span>
+							<a href="#" target="_blank">《微信大屏幕用户注册协议》</a>
+						</label>
+					</p>
+					<div class="btnbox3">
+						<button type="submit" class="btn-regist2">马上注册</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		$(function() {
+			// 设置页面高度
+			var winHeight = $(window).height(), pagesHeight = $(document.body)
+					.height(), diffHeight = winHeight - pagesHeight;
+			$('.login-width').css("paddingBottom", winHeight);
+
+			// 输入框提示
+			$("input").keyup(function() {
+				var obj = $(this);
+				var cls = obj.data('js');
+				if (obj.val()) {
+					$("." + cls).html('');
+				} else {
+					if (cls == 'js_user') {
+						$("." + cls).html('用户名/邮箱/大屏幕账号');
+					} else {
+						$("." + cls).html('密码');
+					}
+				}
+			});
+		});
+	</script>
+
+</body>
+
+</html>

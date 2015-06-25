@@ -1,0 +1,17 @@
+{
+	"success": true,
+	"message": "每次请求打增量",
+	"total": 100,
+	"items": [
+		{
+			"id": 1,
+			"nick": "小红帽",
+			"avatar": "../images/qr-code.jpg"
+		},
+		{
+			"id": 2,
+			"nick": "小尼玛",
+			"avatar": "../images/qr-code.jpg"
+		}
+	]
+}

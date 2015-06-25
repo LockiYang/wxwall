@@ -1,0 +1,9 @@
+{
+	"success": true,
+	"message": "message",
+	"userInfo": {
+		"userName": "小垃圾++",
+		"userRole": "user",
+		"publicAccountSetting": false
+	}
+}

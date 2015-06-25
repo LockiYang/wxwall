@@ -1,0 +1,43 @@
+{
+	"success": true,
+	"message": "message",
+	"total": 3,
+	"items": [
+		{
+			"level": "一等奖",
+			"prize": "全套大保健1",
+			"prizePic": "images/qr-code.jpg",
+			"prizeNum": 1,
+			"levelId": 1,
+			"items": [
+				{ "id":"lucky-001", "index":1, "nick": "小红帽", "avatar": "images/qr-code.jpg" }
+			]
+		},
+		{
+			"level": "二等奖",
+			"prize": "全套大保健2",
+			"prizePic": "images/qr-code.jpg",
+			"prizeNum": 2,
+			"levelId": 2,
+			"items": [
+				{ "id":"lucky-002", "index":1, "nick": "小垃圾", "avatar": "images/qr-code.jpg" },
+				{ "id":"lucky-003", "index":2, "nick": "小红帽", "avatar": "images/qr-code.jpg" }
+			]
+		},
+		{
+			"level": "三等奖",
+			"prize": "绕全场跑五Q",
+			"prizePic": "images/qr-code.jpg",
+			"prizeNum": 3,
+			"levelId": 2,
+			"items": [
+				{ "id":"lucky-004", "index":1, "nick": "小红帽", "avatar": "images/qr-code.jpg" },
+				{ "id":"lucky-005", "index":2, "nick": "小红帽", "avatar": "images/qr-code.jpg" },
+				{ "id":"lucky-006", "index":3, "nick": "小红帽", "avatar": "images/qr-code.jpg" },
+				{ "id":"lucky-007", "index":4, "nick": "小红帽", "avatar": "images/qr-code.jpg" },
+				{ "id":"lucky-008", "index":5, "nick": "小红帽", "avatar": "images/qr-code.jpg" },
+				{ "id":"lucky-009", "index":6, "nick": "小红帽", "avatar": "images/qr-code.jpg" }
+			]
+		}
+	]
+}

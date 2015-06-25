@@ -1,0 +1,756 @@
+<!doctype html>
+<html class="full-height">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="css/upbang.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="screen/css/screen.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="plugins/font-awesome-4.3.0/css/font-awesome.min.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="screen/css/photopile.css" />
+		<title>V动屏</title>
+	</head>
+	<body class="full-height">
+		<!-- header -->
+		<div class="screen-header full-width pos-fixed" id="upbang-header">
+			<div class="header-info clearfix">
+				<a href="http://vdongping.com" target="_blank" class="logo fl">
+					<img id="logo-pic" src="">
+				</a>
+				<div class="screen-font-color clearfix msg-wrapper fl">
+					<div class="msg-switch tac fl">
+						<ul id="msg-switch"></ul>
+					</div>
+					<div class="msg-count tac fl">
+						<p>
+							<span id="upbang-msg-total"></span><br>
+							条消息
+						</p>
+					</div>
+				</div>
+				<img id="qr-code" class="qr-code fr" src="images/qr-code.jpg">
+			</div>
+		</div>
+		
+		<!-- container -->
+		<div class="screen-container full-height" id="upbang-container">
+			<div class="screen-container-info pos-rel">
+				<div class="screen-box full-width pos-abs" id="upbang-box">
+					
+					<!-- 消息墙 -->
+					<div class="upbang-box-item full-width pos-abs visible" id="upbang-msg-list"></div>
+					
+					<!-- 抽奖 -->
+					<div class="upbang-box-item full-width pos-abs" id="lucky-draw">
+						<div class="content-panel pairing-box">
+							<div class="pos-rel fr">
+								<span class="props props-color" style="width: 400px;"></span>
+								<div class="outer-prize">
+									<div class="wrap-prize" style="width: 388px;">
+										<div class="list-top clearfix">
+											<p class="pro-num fr">获奖人数<em class="winUserNum" id="winPrizeUserNum">0</em></p>
+											<span>获奖名单</span>
+										</div>
+										<div class="tab-card clearfix">
+	<!-- 										<div class="card-item trs-all fl cur">一等奖</div> -->
+										</div>
+									<div class="priname-box tab-content">
+									</div>
+									</div>
+								</div>
+							</div>
+							<div class="screen-font-color lottery-box">
+								<div class="box-ltop">
+									<span class="lott-wt">现场抽奖</span>
+									<p class="lott-w">
+										<span>参加抽奖人数</span><em class="join-num" id="draw-total">0</em>
+									</p>
+								</div>
+								<div class="bubble" style="display: none;">
+									<div class="bubble-big">
+										<span class="w1" style="padding-top: 28px; padding-left: 26px;">恭喜两位！</span>
+										<span class="w2">&nbsp;</span>
+									</div>
+									<span class="bubble-mini"></span> 
+									<span class="bubble-mini2"></span>
+								</div>
+							<div class="rock-box">
+								<div class="pair-one">
+									<span class="rock-head">
+										<img class="prize-pic" src="" width="178" height="178" alt="">
+										<div class="prize-name">
+											
+										</div>
+									</span>
+									<span class="rock-name level"></span>
+								</div>
+								<div class="pair-one">
+									<span class="rock-head">
+										<img id="draw-avatar" src="screen/images/draw-default.jpg" width="178" height="178" alt="">
+									</span>
+									<span class="rock-name" id="draw-nick">幸运之星</span>
+								</div>
+							</div>
+							<div class="btn-clear">
+									<p class="btn-rock">
+										<a href="javascript:;" class="btn-start" id="start-draw-btn">
+											开始抽奖
+										</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 对对碰 -->
+					<div class="upbang-box-item full-width pos-abs" id="pairing">
+						<div class="content-panel pairing-box">
+							<div class="pos-rel fr">
+								<span class="props props-color" style="width: 400px;"></span>
+								<div class="outer-prize">
+									<div class="wrap-prize" style="width: 388px;">
+										<div class="list-top clearfix">
+<!-- 											<p class="pro-num fr"> -->
+<!-- 												配对组数<em>0</em> -->
+<!-- 											</p> -->
+											<p class="pro-num fr">配对组数<em class="winUserNum" id="winPairNum">0</em></p>
+											<span>配对名单</span>
+										</div>
+										<div class="list-box">
+											<p class="list-tit">
+												<span>配对序号</span> <span>配对的微信昵称</span>
+											</p>
+											<div class="priname-box">
+												<ul class="pair-list" id="lucky-pairing-list"></ul>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+							<div class="screen-font-color lottery-box">
+								<div class="box-ltop">
+									<span class="pair-wt">缘分对对碰</span>
+								</div>
+								<div class="bubble" style="display: none;">
+									<div class="bubble-big">
+										<span class="w1" style="padding-top: 28px; padding-left: 26px;">恭喜两位！</span>
+										<span class="w2">&nbsp;</span>
+									</div>
+									<span class="bubble-mini"></span> 
+									<span class="bubble-mini2"></span>
+								</div>
+								<span class="icon-heart"></span>
+								<div class="rock-box clearfix">
+									<div class="pair-one">
+										<span class="rock-head">
+										<img id="avatar-boy" src="screen/images/pair-default.png"
+											width="178" height="178" alt=""></span>
+										<span class="rock-name" id="nick-boy"></span>
+									</div>
+									<div class="pair-one">
+										<span class="rock-head"><img id="avatar-girl" src="screen/images/pair-default.png"
+											width="178" height="178" alt=""></span>
+											<span class="rock-name" id="nick-girl" ></span>
+									</div>
+								</div>
+								<div class="btn-clear">
+									<p class="btn-rock">
+										<a id="start-pairing-btn" href="javascript:;" class="btn-start">开始对对碰</a>
+									</p>
+								</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 签到墙 -->
+					<div class="upbang-box-item full-width pos-abs" id="signin">
+						<div class="content-panel">
+							<div style="margin-left: 42%;font-size: 2em;margin-bottom: 4%;margin-top: 4%;">
+								<span style="color: #fff;border: solid;padding: 20px;border-radius: 200px;border-color: rgb(253, 252, 255);">
+								已签到<em id="signUserNum">0</em>人
+								</span>
+							</div>
+							<div class="signin-box">
+								<ul class="pos-rel signin-list">
+									<li class="li1">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li2">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li3">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li4">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li5">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li6">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li7">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li8">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li9">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li10">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li11">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li12">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li13">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li14">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li15">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li16">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li17">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li18">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li19">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li20">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li21">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li22">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li23">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li24">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li25">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li26">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li27">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li28">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li29">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li30">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li31">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li32">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li33">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li34">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li35">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li36">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li37">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li38">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li39">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li40">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li41">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li42">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li43">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li44">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li45">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+									<li class="li46">
+										<div class="user-avatar">
+											<img class="avatar" src="screen/images/getheadimg.jpg" width="56" height="56">
+										</div>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 摇一摇 -->
+					<div class="upbang-box-item full-width pos-abs" id="shake" style="height: 625px;">
+						<div id="countdown-btn" class="countdown pos-abs"  style="top:10px;left:250px;z-index: 1;">
+							<p style="font-size: 70px;"><font>倒计时3秒</font></p>
+						</div>
+						<div class="content-panel">
+							<div id="shake-box" class="func-box" style="display: none;">
+								<div class="box-ltop">
+									<span class="pair-wt">摇一摇比赛</span>
+									<span id="shake-user-num" class="pos-abs" style="font-size: 20px;top: 33px;left: 200px;">共0人参赛</span>
+								</div>
+								<a id="shake-reset-btn" href="javascript:;" class="btn-start" style="font-size: 20px;padding: 10px;position: absolute;top: 18px;right: 50px;">重新开始</a>
+
+								<div class="shake-runway">
+									<div id="runner1">
+										<img class="avatar" width="60" height="60">
+										<span style="line-height: 60px;font-size: 1.5em;color: rgba(13, 1, 3, 1);"></span>
+									</div>
+									<div id="runner2">
+										<img class="avatar" width="60" height="60">
+										<span style="line-height: 60px;font-size: 1.5em;color: rgba(13, 1, 3, 1);"></span>
+									</div>
+									<div id="runner3">
+										<img class="avatar" width="60" height="60">
+										<span style="line-height: 60px;font-size: 1.5em;color: rgba(13, 1, 3, 1);"></span>
+									</div>
+									<div id="runner4">
+										<img class="avatar" width="60" height="60">
+										<span style="line-height: 60px;font-size: 1.5em;color: rgba(13, 1, 3, 1);"></span>
+									</div>
+									<div id="runner5">
+										<img class="avatar" width="60" height="60">
+										<span style="line-height: 60px;font-size: 1.5em;color: rgba(13, 1, 3, 1);"></span>
+									</div>
+									<div id="runner6">
+										<img class="avatar" width="60" height="60">
+										<span style="line-height: 60px;font-size: 1.5em;color: rgba(13, 1, 3, 1);"></span>
+									</div>
+<!-- 									<img id="runner2" class="avatar pos-abs" width="60" height="60"> -->
+<!-- 									<img id="runner3" class="avatar pos-abs" width="60" height="60"> -->
+<!-- 									<img id="runner4" class="avatar pos-abs" width="60" height="60"> -->
+<!-- 									<img id="runner5" class="avatar pos-abs" width="60" height="60"> -->
+<!-- 									<img id="runner6" class="avatar pos-abs" width="60" height="60"> -->
+								</div>
+								<div class="shake-prize pos-rel" >
+									<div id="first-prize" class="pos-abs first-prize">
+										<img class="avatar">
+										<p class="nick-name"></p>
+										<p class="shake-num"></p>
+									</div>
+									
+									<div id="second-prize" class="pos-abs second-prize">
+										<img class="avatar">
+										<p class="nick-name"></p>
+										<p class="shake-num"></p>
+									</div>
+									<div id="third-prize" class="pos-abs third-prize">
+										<img class="avatar">
+										<p class="nick-name"></p>
+										<p class="shake-num"></p>
+									</div>
+									<img class="pos-abs shake-prize-platform" src="screen/images/prize.png">
+								</div>
+							</div>
+						</div>
+					</div>
+					<!-- 精彩瞬间 -->
+					<div class="upbang-box-item full-width pos-abs" id="photopile">
+						<div class="content-panel">
+						<div class="func-box" style="height: 600px;">
+								<div class="box-ltop">
+									<span class="pair-wt">精彩瞬间</span>
+								</div>
+							<div class="photopile-wrapper">
+								<ul class="photopile">
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/01.jpg"> -->
+<!-- 											<img src="images/fullsize/01.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/02.jpg"> -->
+<!-- 											<img src="images/fullsize/02.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/03.jpg"> -->
+<!-- 											<img src="images/fullsize/03.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/04.jpg"> -->
+<!-- 											<img src="images/fullsize/04.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/05.jpg"> -->
+<!-- 											<img src="images/fullsize/05.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/06.jpg"> -->
+<!-- 											<img src="images/fullsize/06.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/07.jpg"> -->
+<!-- 											<img src="images/fullsize/07.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/08.jpg"> -->
+<!-- 											<img src="images/fullsize/08.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/09.jpg"> -->
+<!-- 											<img src="images/fullsize/09.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/10.jpg"> -->
+<!-- 											<img src="images/fullsize/10.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/11.jpg"> -->
+<!-- 											<img src="images/fullsize/11.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/12.jpg"> -->
+<!-- 											<img src="images/fullsize/12.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/13.jpg"> -->
+<!-- 											<img src="images/fullsize/13.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/14.jpg"> -->
+<!-- 											<img src="images/fullsize/14.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/15.jpg"> -->
+<!-- 											<img src="images/fullsize/15.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/16.jpg"> -->
+<!-- 											<img src="images/fullsize/16.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/17.jpg"> -->
+<!-- 											<img src="images/fullsize/17.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/18.jpg"> -->
+<!-- 											<img src="images/fullsize/18.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/19.jpg"> -->
+<!-- 											<img src="images/fullsize/19.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/20.jpg"> -->
+<!-- 											<img src="images/fullsize/20.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/21.jpg"> -->
+<!-- 											<img src="images/fullsize/21.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/22.jpg"> -->
+<!-- 											<img src="images/fullsize/22.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/23.jpg"> -->
+<!-- 											<img src="images/fullsize/23.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/24.jpg"> -->
+<!-- 											<img src="images/fullsize/24.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/25.jpg"> -->
+<!-- 											<img src="images/fullsize/25.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/26.jpg"> -->
+<!-- 											<img src="images/fullsize/26.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/27.jpg"> -->
+<!-- 											<img src="images/fullsize/27.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/28.jpg"> -->
+<!-- 											<img src="images/fullsize/28.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/29.jpg"> -->
+<!-- 											<img src="images/fullsize/29.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/30.jpg"> -->
+<!-- 											<img src="images/fullsize/30.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/31.jpg"> -->
+<!-- 											<img src="images/fullsize/31.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/32.jpg"> -->
+<!-- 											<img src="images/fullsize/32.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/33.jpg"> -->
+<!-- 											<img src="images/fullsize/33.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/34.jpg"> -->
+<!-- 											<img src="images/fullsize/34.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/35.jpg"> -->
+<!-- 											<img src="images/fullsize/35.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/36.jpg"> -->
+<!-- 											<img src="images/fullsize/36.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+<!-- 									<li> -->
+<!-- 										<a imgSrc="images/fullsize/37.jpg"> -->
+<!-- 											<img src="images/fullsize/37.jpg" alt="" style="width:133px;heigh:100px;" /> -->
+<!-- 										</a> -->
+<!-- 									</li> -->
+								</ul>
+							</div>
+							</div>
+						</div>
+					</div>
+					
+					<!-- 投票 -->
+					<div class="upbang-box-item full-width pos-abs" id="rote">
+						<div class="content-panel">
+							<div class="content-panel-info bg">
+								<div class="turntable-bg"> 
+								  <div class="pointer"><img src="images/pointer.png" alt="pointer"/></div>
+								  <div class="rotate" ><img id="rotate" src="images/turntable.png" alt="turntable"/></div>
+								</div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		
+		<!-- footer -->
+		<div id="upbang-footer" class="screen-footer btns full-width pos-fixed tac">
+			<img src="images/logo.png">
+<!-- 			<a href="javascript:;" class="btn-icon btn-wifi btn-wifi-disable" title="网络已断开，请检查您的网络连接">信号</a>  -->
+			<a href="javascript:;" class="btn-icon btn-danmu" data-action="upbang-msg-list" title="图文墙">图文墙</a>
+			<a href="javascript:;" class="btn-icon btn-style" title="更换风格">风格选择</a>
+			<a href="javascript:;" class="btn-icon btn-checkin" data-action="signin" title="签到墙">签到墙</a>
+<!-- 			<a href="javascript:;" class="btn-icon btn-tag " title="点击查看星标消息">加星消息</a> -->
+			<a href="javascript:;" class="btn-icon btn-lottery" data-action="lucky-draw" title="抽奖">抽奖</a>
+			<a href="javascript:;" class="btn-icon btn-pair" data-action="pairing" title="对对碰">对对碰</a>
+<!-- 			<a href="javascript:;" class="btn-icon btn-vote" title="投票">投票</a> -->
+			<a href="javascript:;" class="btn-icon btn-vote" data-action="photopile" title="精彩瞬间">精彩瞬间</a>
+			<a href="javascript:;" class="btn-icon btn-shake" data-action="shake" title="摇一摇">摇一摇</a>
+			<a href="javascript:;" class="btn-icon btn-full" title="全屏">全屏</a>
+			<span id="screen-control-btns">
+			<a href="javascript:;" class="btn-func btn-old" title="最旧一屏">最旧</a>
+			<a hidefocus href="javascript:;" class="btn-func btn-prev tooltipped tooltipped-n" aria-label="上一条">上一条</a>
+			<a href="javascript:;" class="btn-func play-or-pause btn-begin" title="暂停">暂停</a>
+			<a href="javascript:;" class="btn-func btn-next" title="下一屏">下一条</a>
+			<a href="javascript:;" class="btn-func btn-new" title="最新一屏">最新</a>
+			<div class="hide-icon visible pos-fixed">隐藏</div>
+			</span>
+		</div>
+		<div class="show-icon pos-fixed">显示</div>
+		
+		<!-- 主题 -->
+		<div class="theme-preview" id="theme-preview">
+			<div class="theme-preview-list clearfix" id="theme-preview-list">
+			</div>
+			<div class="theme-feature">
+				<a href="javascript:;" class="fa fa-refresh refresh-theme-preview" title="刷新"></a>
+				<a href="javascript:;" class="fa fa-close close-theme-preview" title="关闭"></a>
+			</div>
+		</div>
+		
+		<!-- 抽奖 -->
+		<div class="lucky-mask">
+			<div class="lucky-block">
+				<img src="images/xlj.jpg">
+				<div class="lucky-info"><span class="nick">小垃圾</span>恭喜获得<span class="lucky-level">一等奖</span></div>
+				<a href="javascript:;" class="ui-btn continue-draw">继续抽奖</a>
+			</div>
+		</div>
+		
+		<!-- 二维码 -->
+		<div class="ticket-mask" id="qr-code-mask">
+			<div class="ticket-block">
+				<div class="qr-code-wrapper" id="big-qr-code">
+					<img class="qr-code fl" src="images/xlj.jpg">
+					<div class="fl rule-msgs">
+						
+					</div>
+				</div>
+			</div>
+		</div>
+		</div>
+		
+		<script type="text/javascript" src="js/store+json2.min.js?v=1.0"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="js/jquery-ui-1.10.4.min.js"></script>
+		<script type="text/javascript" src="plugins/jquery-tmpl/jquery.tmpl.min.js?v=1.0"></script>
+		<script type="text/javascript" src="js/util.js?v=1.0"></script>
+		<script type="text/javascript" src="js/upbang.js?v=1.0"></script>
+	</body>
+</html>

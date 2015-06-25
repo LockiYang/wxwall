@@ -1,0 +1,12 @@
+
+.login,
+.register {
+	width: 500px;
+	margin: 0 auto;
+	padding-top: 20em;
+}
+
+#login-form .ui-input,
+#register-form .ui-input {
+	width: 20em;
+}

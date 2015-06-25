@@ -1,0 +1,115 @@
+@charset "utf-8";
+/* CSS Document */
+
+/*----------------------浏览器兼容方法-------------------------------------------------------------------
+background-color: #CC00FF;		FF
+background-color: #FF0000\9;	IE8
+*background-color: #0066FF;		IE7
+_background-color: #009933;		IE6		*/
+
+/*----------------------圆角边框的写法-------------------------------------------------------------------
+#round {
+    padding:10px; width:300px; height:50px;
+    background:#FC9; 
+    -moz-border-radius: 15px;
+    -webkit-border-radius: 15px;
+    border-radius:15px;
+}		*/
+
+/******************************************************************************************
+                                    初始化
+******************************************************************************************/
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend { margin: 0; padding: 0; border: 0; outline: 0; font-size: 100%; vertical-align: baseline; background: transparent; font-family:"微软雅黑", "Microsoft Yahei", Arial, Helvetica, sans-serif;}
+ol, ul, li { list-style: none; }
+
+.fl{ float:left;}
+.fr{ float:right;}
+
+.cl { height:0; clear:both; overflow:hidden; }
+.no, .none{ height:0; line-height:0; font-size:0; overflow:hidden; display:none;}
+.no-back{ background:none;}
+.no-border{ border:none;}
+.block{ display:block;}
+.tc{ text-align:center;}
+.error {color:red;}
+
+.webimg{ display:none;}
+
+.mt100{ margin-top:100px;}
+
+h1{ font-size:22px; line-height:46px;}
+h2{ font-size:16px; font-weight:normal; line-height:32px;}
+h3{ font-size:14px; line-height:28px;}
+h4{ font-size:12px; line-height:24px; font-weight:normal; padding-bottom:15px;}
+
+/******************************************************************************************/
+
+body{ width:100%; font-size:14px; line-height:20px; background:#f6f6f6; color:#333333;}
+a{ text-decoration:none; color:#333333;}
+a:hover{ color:#0095ff;}
+
+.width{ width:1000; margin:0 auto;}
+
+/*内面用切换*/
+.width .nav{ margin-top:40px; border-right:1px #d8d8d8 solid; border-bottom:1px #d8d8d8 solid;}
+.width .nav td{ border-left:1px #d8d8d8 solid; border-top:1px #d8d8d8 solid; }
+.width .nav a{ display:block; background:#eeeeee; text-align:center;  line-height:46px; color:#333333; font-weight:bold; text-decoration:none;}
+.width .nav a:hover, .width .nav #on{ background-color:#fff;}
+.width .nav a.new{ background-image:url(../list-new.png); background-position:right top; background-repeat:no-repeat;}
+
+/************************************************************************************
+										头部
+************************************************************************************/
+.header{ background:#44b549; color:#ffffff; border-bottom:1px #006db5 solid; width:100%; overflow:hidden;}
+.header .fl{}
+.header .fl a{ display:block; padding:17px 0; display:block;}
+.header .fl a:hover{ border-bottom-color:#ffffff;}
+.header .fl a img{ height: 40px; width: 120px;}
+.header .fr{}
+.header .fr .top{ float:right; margin-top:10px; height:16px; line-height:16px; overflow:hidden;}
+.header .fr .top a{ color:#eef8ff; font-size:12px;}
+.header .fr .top a:hover{ color:#ffffff;}
+.header .fr ul{}
+.header .fr ul li{ float:left; margin-left:10px;}
+.header .fr ul li a{ display:block; font-size:16px; color:#fff; font-weight:normal; text-align:center; padding:0 12px 0; line-height:72px; border-bottom:1px #44b549 solid;}
+.header .fr ul li a:hover{ border-bottom:2px #ffffff solid;}
+.header .fr ul li .demo{ line-height:30px; margin-top:21px; -moz-border-radius:20px;-webkit-border-radius:20px; margin-left:10px;background: #00c13c;
+  border-radius: 20px;
+  padding: 0 20px;}
+.header .fr ul li .demo:hover{ background:#009aff;border:none;}
+.header .fr ul li.select a{ border-bottom:2px #ffffff solid;}
+
+/************************************************************************************
+										底部	
+************************************************************************************/
+
+.footer{ margin-top:60px; padding:70px 0 50px; border-top:1px #aaaaaa solid; background:#323232; color:#ffffff; overflow:hidden; color:#8e8e8e;}
+.footer .fl{ margin-left:90px;}
+.footer .fl dl{}
+.footer .fl dt{ font-size:15px; font-weight:bold; color:#ffffff;}
+.footer .fl dt a{ color:#ffffff;}
+.footer .fl dd{ margin-top:12px; line-height:30px;}
+.footer .fl dd li{}
+.footer .fl dd a{ color:#8e8e8e;}
+.footer .fl dd a:hover{ color:#ffffff;}
+.footer .row1{ margin-left:0px;}
+.footer .row1 dd a{ line-height:48px; font-size:15px;}
+.footer .row1 dd a:hover{}
+.footer .row1 dd a img{ vertical-align:middle; margin-right:6px;}
+.footer .row2{}
+.footer .row3{}
+.footer .row4{ margin-left:50px;}
+.footer .row4 dd{ margin-top:18px;}
+.footer .row4 .map{ width:334px; height:334px;}
+.footer .menu{ margin-top:100px; text-align:center;}
+.footer .menu a{ color:#8e8e8e;}
+.footer .menu a:hover{ color:#ffffff;}
+.footer .copyright{ margin-top:10px; line-height:36px; text-align:center;}
+.footer .copyright span{ font-size:16px;}
+
+/************************************************************************************
+										内容页通用
+************************************************************************************/
+#showpath{ width:1000px; margin:35px auto 30px; overflow:hidden;}
+#showpath dt{ float:left; background:url(path_home.png) no-repeat; padding-left:26px;}
+#showpath dd{ float:right;}

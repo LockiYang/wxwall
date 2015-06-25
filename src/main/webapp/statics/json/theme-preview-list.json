@@ -1,0 +1,14 @@
+{
+	"success": true,
+	"message": "message",
+	"total": 10,
+	"items": [
+		{ "id": "theme-1", "index":"1", "name":"默认大红", "src":"images/defaultdx.png" },
+		{ "id": "theme-2", "index":"2", "name":"天蓝",  "src":"images/bg.jpg" },
+		{ "id": "theme-3", "index":"1", "name":"草绿", "src":"images/cn.jpg" },
+		{ "id": "theme-4", "index":"2", "name":"喜庆大红",  "src":"images/xqdh.jpg" },
+		{ "id": "theme-5", "index":"1", "name":"玫红", "src":"images/mh.jpg" },
+		{ "id": "theme-6", "index":"2", "name":"梦幻紫",  "src":"images/mhz.jpg" },
+		{ "id": "theme-7", "index":"1", "name":"湖底蓝", "src":"images/skin2.jpg" }
+	]
+}

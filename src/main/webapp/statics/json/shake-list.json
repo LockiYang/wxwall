@@ -1,0 +1,12 @@
+{
+	"success": true,
+	"message": "message",
+	"total": 100,
+	"items": [
+		{ "index": 1,"id":1, "nick": "小红帽1", "avatar": "images/qr-code.jpg", "shakeNum": "20" },
+		{ "index": 2,"id":2, "nick": "小垃圾", "avatar": "images/xlj.jpg", "shakeNum": "40" },
+		{ "index": 3,"id":3, "nick": "小红帽3", "avatar": "images/qr-code.jpg", "shakeNum": "60" },
+		{ "index": 4,"id":4, "nick": "小垃圾", "avatar": "images/xlj.jpg", "shakeNum": "80" },
+		{ "index": 5,"id":5, "nick": "小红帽5", "avatar": "images/qr-code.jpg", "shakeNum": "100" }
+	]
+}

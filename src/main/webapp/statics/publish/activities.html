@@ -1,0 +1,161 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/publish.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../plugins/font-awesome-4.3.0/css/font-awesome.min.css?v=1.0">
+		<title>wokao</title>
+	</head>
+	<body class="publish">
+
+		<!-- publish-header -->
+		<div class="publish-header full-width pos-fixed">
+			<div class="publish-header-info pos-rel clearfix">
+				<div class="logo fl">
+					<h1>抱走王尼玛</h1>
+					<p>活动发布管理系统</p>
+				</div>
+				<ul class="nav clearfix fl">
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="index.html">首页</a></li>
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="publish.html">申请活动</a></li>
+					<li class="nav-item fl cur"><a hidefocus class="trs-all" href="activities.html">我的活动</a></li>
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="buy.html">套餐购买</a></li>
+				</ul>
+				<div class="pos-abs user-drop-menu">
+					<a hidefocus class="nick trs-all" href="javascript:;">
+						抱走小尼玛&nbsp;
+						<span class="fa fa-caret-down"></span>
+					</a>
+					<div class="items trs-all pos-abs">
+						<div class="item"><a hidefocus class="trs-all" href="public-account-info.html">公众号设置</a></div>
+						<div class="item"><a hidefocus class="trs-all" href="user-info.html">账号信息</a></div>
+						<div class="item"><a hidefocus class="trs-all" href="logout">退出</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /publish-header -->
+
+		<div class="publish-container">
+			<div class="page-wrapper border-box-mode">
+				<div class="page-wrapper-header">
+					<span class="icon fa fa-tags fa-3"></span>
+					<span class="text">我发布的活动<span>
+				</div>
+				<div class="activities-section">
+					<!-- this is a activity-block-->
+					<div class="activity-block clearfix">
+						<div class="menu fr">
+							<a hidefocus class="menu-item tac fl open-target upload-logo-btn" data-show="upload-img" data-activityId="123" href="javascript:;">
+								<div class="icon trs-all fa fa-bookmark"></div>
+								<div class="text">自定义logo</div>
+							</a>
+							<a hidefocus class="menu-item tac fl" href="javascript:;">
+								<div class="icon trs-all fa fa-th-list"></div>
+								<div class="text">自定义背景</div>
+							</a>
+							<a hidefocus class="menu-item tac fl" href="javascript:;">
+								<div class="icon trs-all fa fa-newspaper-o"></div>
+								<div class="text">自动上墙</div>
+							</a>
+
+							<a hidefocus class="menu-item tac fl" href="javascript:;">
+								<div class="icon trs-all fa  fa-gift"></div>
+								<div class="text">抽奖</div>
+							</a>
+							<a hidefocus class="menu-item tac fl" href="javascript:;">
+								<div class="icon trs-all fa fa-heart"></div>
+								<div class="text">对对碰</div>
+							</a>
+							<a hidefocus class="menu-item tac fl" href="javascript:;">
+								<div class="icon trs-all fa fa-bar-chart"></div>
+								<div class="text">投票</div>
+							</a>
+
+							<a hidefocus class="menu-item tac fl" href="javascript:;">
+								<div class="icon trs-all fa fa-edit"></div>
+								<div class="text">签到</div>
+							</a>
+							<a hidefocus class="menu-item tac fl" href="javascript:;">
+								<div class="icon trs-all fa fa-comments"></div>
+								<div class="text">短信</div>
+							</a>
+							<a hidefocus class="menu-item tac fl" href="javascript:;">
+								<div class="icon trs-all fa fa-unlink"></div>
+								<div class="text">摇一摇</div>
+							</a>
+						</div>
+						<div class="info pos-rel">
+							<h1 class="title">活动主题 : 抱走丑尼玛，在一起</h1>
+							<div class="item data-time">活动时间 : <span class="ui-text">2015-02-02 12:00</span> 至 <span class="ui-text">2015-02-02 12:00</span></div>
+							<div class="item check">审核状态 : <span class="ui-text">已通过</span></div>
+							<div class="item desc">活动介绍 : 抱走丑尼玛</div>
+							<div class="buttons tal">
+								<a hidefocus class="ui-btn" href="javascript:;">常见问题</a>
+								<a hidefocus class="ui-btn" href="checkin-data.html">查看数据</a>
+								<a hidefocus class="ui-btn" href="javascript:;">查看活动</a>
+							</div>
+							<img class="qr-code" src="../images/qr-code.jpg">
+						</div>
+					</div>
+					<!-- /this is a activity-block-->
+				</div>
+			</div>
+		</div>
+
+		<!-- this is dialog mask -->
+		<div class="mask trs-all"></div>
+		<!-- /this is dialog mask -->
+
+		<!-- this is a dialog  -->
+		<div class="dialog trs-all" id="upload-img">
+			<form id="some-form" method="post" action="">
+				<div class="head">
+					<h1 class="title">title.小尼玛</h1>
+					<a class="x close-target trs-all fa fa-close" href="javascript:;"></a>
+				</div>
+				<div class="body">
+					<div class="info border-box-mode">
+						<table class="full-width no-border">
+							<tr>
+								<td class="tar" width="120">选择一张图片</td>
+								<td>
+									<input type="file" class="" name="" autofocus>
+								</td>
+							</tr>
+							<tr>
+								<td class="tar"></td>
+								<td>
+									<div class="desc">logo最佳尺寸100*48</div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<div class="foot">
+					<button type="submit" class="ui-btn trs-all">button</button>
+				</div>
+				<input class="activityId" type="hidden" name="activityId" value="">
+			</form>
+		</div>
+		<!-- /this is a dialog  -->
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/jquery-validate/jquery.validate.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/config-validate.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/util.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/dialog.js?v=1.0"></script>
+		<script type="text/javascript">
+			$(function () {
+				$(document).on('click','.upload-logo-btn',function (e) {
+					var $me = $(this),
+						activityId = $me.data('activityId');
+					$('#upload-img').find('.activityId').val(activityId);
+				})
+			})
+		</script>
+	</body>
+</html>

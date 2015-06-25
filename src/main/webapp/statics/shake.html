@@ -1,0 +1,170 @@
+
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>摇一摇</title>
+    <script src="js/jquery-1.11.1.min.js?v=1.0"></script>
+    <script src="js/util.js?v=1.0"></script>
+    <script>
+	// 网页BAR
+	document.addEventListener('WeixinJSBridgeReady', function onBridgeReady() {
+		// 隐藏微信中网页右上角按钮
+		WeixinJSBridge.call('hideOptionMenu');
+		// 隐藏微信中网页底部导航栏
+		WeixinJSBridge.call('hideToolbar');
+	});
+	</script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <style>
+    * { margin: 0; padding: 0; }
+	html{ width:100%; height:100%;}
+    body { background: #292D2E; width:100%; height:100%; }
+    .hand { width:100%; height:100%; color:#ffffff; vertical-align:middle; text-align:center; font-size:20px; background: url(images/shake_bg.gif) center no-repeat; position: absolute;}
+	#prompt{ width:100%; position:absolute; left:0; bottom:30px; text-align:center; color:#fff; font-size:20px; line-height:30px;}
+	#test{ width:100%; position:absolute; left:0; bottom:0; text-align:center; color:#fff; font-size:12px; line-height:30px;}
+    </style>
+</head>
+
+<body>
+
+<img src="images/shake_move.gif" style="display:none;" />
+<img src="images/shake_move-2.gif" style="display:none;" />
+
+<div id="hand" class="hand hand-animate"></div>
+<div id="prompt"></div>
+<div id="test"></div>
+
+<!--<div id="link" class="link" style="position:fixed;bottom:20px; color:#F00;"><a href="http://wxpac.com/index.php?m=phone&c=index&a=shake&catid=101&aid=1&uid=98834&pw=d87a9d7bfb39ee69ce6d91106620117b">新页</a></div>-->
+<!--<div id="test" style="position:fixed; top:50%; color:#FF0;word-break:break-all;"></div>-->
+<script>
+var SHAKE_THRESHOLD = 1200;	//阀值
+var last_update = 0;
+var x = y = z = last_x = last_y = last_z = 0;
+
+var network_type = '';
+var network_status = false;
+
+var shake_num = 0;
+
+var send_status = 0;	// 发送数据状态，0未发送，1正在发送，-1停止
+
+var bg_status = -1;	// 背景状态
+//var auto_time = 10*1000;	// 摇一摇计数时间，暂定为60秒
+
+var gamestop = 0;
+var activityMid = util.getQueryString('activityMid');
+var uuid = util.getQueryString('uuid');
+
+function deviceMotionHandler(eventData) {
+    var acceleration = eventData.accelerationIncludingGravity;
+    var curTime = new Date().getTime();
+
+    if ((curTime - last_update) > 100) {
+        var diffTime = curTime - last_update;
+        last_update = curTime;
+        x = acceleration.x;
+        y = acceleration.y;
+        z = acceleration.z;
+        var speed = Math.abs(x + y + z - last_x - last_y - last_z) / diffTime * 10000;
+        //var status = document.getElementById("status");
+
+        if (speed > SHAKE_THRESHOLD) {
+            // 累加摇的次数
+            shake_num++;
+            if(!send_status){
+				send_status = 1;
+				//setTimeout(stopSend, auto_time);
+				setTimeout(sendData, 500);
+				//$("#hand").css("background","http://wxpac.com/statics/phone/20140321/images/shake_move.gif");
+			}
+        }
+        last_x = x;
+        last_y = y;
+        last_z = z;
+    }
+}
+
+window.onload = function(){
+    // 网络
+    document.addEventListener("WeixinJSBridgeReady", function() { 
+        WeixinJSBridge.invoke('getNetworkType',{}, function(e){
+            network_type = e.err_msg.split(':')[1];
+            if(network_type=='wifi' || network_type=='edge' || network_type=='wwan'){
+                network_status = true;
+                // 摇一摇功能监听
+                if(window.DeviceMotionEvent){
+                    window.addEventListener('devicemotion', deviceMotionHandler, false);
+                    main();
+                }else{
+                    alert('很遗憾，您的手机系统版本不支持此功能！');
+                }
+            }else{
+                alert('请先连接网络！');
+            }
+        }); 
+    }, false);
+};
+
+function main(){
+    //alert('main');
+}
+
+function stopSend(str, t){
+	//$("#hand").css("background","http://wxpac.com/statics/phone/20140321/images/shake_bg.gif");
+	document.getElementById('hand').style.backgroundImage = 'url(images/shake_bg.gif)';
+    //alert(str+gamestop);
+	gamestop = 1;
+	$("#prompt").html(str);
+	setTimeout("gamestop = 0;", t);
+}
+
+var token = 0;
+function sendData(){
+	//alert('sendData send_status='+send_status);
+    var t = new Date().getTime().toString();
+	//var time = t.substr(0,10);
+	//$("#test").html($("#test").html()+';'+token);
+    var num = shake_num;
+    shake_num = 0;
+    $.getJSON("../activity-screen/shake?activityMid=" + activityMid + "&uuid=" + uuid + "&shakeNum="+num, function(data,status){
+        //alert("Data: " + data + "\nStatus: " + status);
+		//$("#test").text($("#test").text()+';'+num+','+data);
+		var success = data.success;
+		if(success == false){
+			// 游戏未开始
+			send_status = 0;
+			bg_status = -1;
+			stopSend(data.message, 10000);
+		}else if(success == true){
+			$("#prompt").html(data.message);
+			if(send_status>0){
+				/*var hbg = $(".hand").css("background-image");
+				if(hbg=='url(http://wxpac.com/statics/phone/20140321/images/shake_move.gif)')
+					document.getElementById('hand').style.backgroundImage = 'url(http://wxpac.com/statics/phone/20140321/images/shake_bg.gif)';
+				else if(hbg=='url(http://wxpac.com/statics/phone/20140321/images/shake_bg.gif)')
+					document.getElementById('hand').style.backgroundImage = 'url(http://wxpac.com/statics/phone/20140321/images/shake_move.gif)';*/
+				if(bg_status<0) changeBG();
+				setTimeout(sendData, 2000);
+			}
+		}
+    });
+}
+
+function changeBG(){
+	if(!send_status) return false; else setTimeout(changeBG, 100);
+	
+	if(bg_status<0) bg_status = 0;
+	if(!bg_status){
+		document.getElementById('hand').style.backgroundImage = 'url(images/shake_bg.gif)';
+	}else if(bg_status==1){
+		document.getElementById('hand').style.backgroundImage = 'url(images/shake_move-2.gif)';
+	}else if(bg_status==2){
+		document.getElementById('hand').style.backgroundImage = 'url(images/shake_move.gif)';
+	}
+	if(bg_status>=2) bg_status = 0; else bg_status++;
+}
+</script>
+
+</body>
+</html>

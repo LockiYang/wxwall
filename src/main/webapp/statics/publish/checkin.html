@@ -1,0 +1,69 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/publish.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../plugins/font-awesome-4.3.0/css/font-awesome.min.css?v=1.0">
+		<title>wokao</title>
+	</head>
+	<body class="publish">
+
+		<!-- publish-header -->
+		<div class="publish-header full-width pos-fixed">
+			<div class="publish-header-info pos-rel clearfix">
+				<div class="logo fl">
+					<h1>抱走丑尼玛</h1>
+					<p>活动发布管理系统</p>
+				</div>
+				<ul class="nav clearfix fl">
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="index.html">首页</a></li>
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="publish.html">申请活动</a></li>
+					<li class="nav-item fl cur"><a hidefocus class="trs-all" href="activities.html">我的活动</a></li>
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="buy.html">套餐购买</a></li>
+				</ul>
+				<div class="pos-abs user-drop-menu">
+					<a hidefocus class="nick trs-all" href="javascript:;">
+						抱走小尼玛&nbsp;
+						<span class="fa fa-caret-down"></span>
+					</a>
+					<div class="items trs-all pos-abs">
+						<div class="item"><a hidefocus class="trs-all" href="public-account-info.html">公众号设置</a></div>
+						<div class="item"><a hidefocus class="trs-all" href="user-info.html">账号信息</a></div>
+						<div class="item"><a hidefocus class="trs-all" href="logout">退出</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /publish-header -->
+
+		<div class="publish-container">
+			<div class="page-wrapper border-box-mode">
+				<div class="page-wrapper-header pos-rel">
+					<span class="icon fa fa-edit fa-3"></span>
+					<span class="text">签到板</span>
+					<div class="checkin-total pos-abs">签到数-<span id="checkin-total"></span></div>
+				</div>
+				<div class="publish-section">
+					<div class="tips-info normal tac" id="checkin-update-btn">刷新</div>
+					<div class="checkin-list clearfix" id="checkin-list"></div>
+				</div>
+			</div>
+		</div>
+		<div id="checkin-bubble" class="trs-all"></div>
+		<script id="checkin-list-tmpl" type="text/x-jquery-tmpl">
+			<div class="checker trs-all">
+				<a hidefocus class="info tooltipped tooltipped-s" aria-label="${nick}" href="javascript:;">
+					<img class="avatar" src="${avatar}">
+				</a>
+			</div>
+		</script>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/jquery-tmpl/jquery.tmpl.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/util.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/checkin.js"></script>
+	</body>
+</html>

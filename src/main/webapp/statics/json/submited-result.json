@@ -1,0 +1,20 @@
+{
+	"success": true,
+	"message": "message",
+	"data": {
+		"accessToken": "smnTFBvDzYD7aoH5dqjJkPHn5u5_v3Rn51DKFby3h5krGBOl8CgSFkZB3q7d_X1g_sFkqg796Z_wkLL0cnw1Cg9Tk9V3PVroO4UrKflF9Ms",
+		"createDate": "2015-01-26 08:03:41",
+		"expire": 1422869835000,
+		"id": 1,
+		"mid": "http://192.168.137.251:8080/wxwall/weixin/process?mid=a2ff1eeb8c688b35f75b7611e2abcbd9",
+		"token": "baf949c7f2c934deea1f3e809ce07c8a",
+		"updateDate": "2015-02-02 07:37:15",
+		"user": {"id": 1, "createDate": "2015-01-26 08:03:39", "updateDate": "2015-01-26 08:03:39", "validFlag": null},
+		"validFlag": null,
+		"weChatID": "wxa15b5a3c0cc56dd3",
+		"weChatImage": null,
+		"weChatName": "gh_0efc857c45e1",
+		"weChatSecret": "abe1c14cd5bf04719ace3c3197f06068"
+	}
+}
+

@@ -1,0 +1,100 @@
+
+.publish-header {
+	color: #fff;
+	background: #333;
+	background: rgba(0,0,0,0.75);
+	text-shadow: 0 0 1px #000;
+	box-shadow: 0 0 8px rgba(0,0,0,0.75);
+}
+.publish-header a {
+	color: #fff;
+}
+.publish-container,
+.publish-header-info {
+	width: 1200px;
+	margin: 0 auto;
+}
+.publish-header-info .publish-logo {
+	padding: 0.5em;
+}
+.publish-header-info .nick {
+	padding: 0.5em;
+	right: 0;
+	top: 0;
+	line-height: 3em;
+}
+.publish-container {
+	padding-top: 60px;
+}
+
+.publish-aside {
+	left: 50%;
+	top: 60px;
+	margin-left: -600px;
+	padding: 0.5em;
+}
+.publish-aside-info {
+	width: 260px;
+	background: #eee;
+}
+.publish-aside .nav-header {
+	padding: 1em;
+	margin-bottom: 0.5em;
+	border-bottom: 1px solid #ddd;
+}
+.publish-aside li.cur a {
+	padding-left: 1em;
+	border-left: 0.4em solid #01CF97;
+}
+.publish-aside li a {
+	padding: 1em;
+	padding-left: 1.4em;
+	display: block;
+}
+.publish-aside li a:hover {
+	background: #ddd;
+}
+.publish-section {
+	margin-left: 272px;
+	padding: 0.5em;
+}
+
+.publish-section .field-table {
+	width: 100%;
+}
+
+.publish-section .field-table .ui-input {
+	width: 25em;
+}
+
+.publish-section .field-table textarea.ui-input {
+	width: 100%;
+}
+
+.publish .ui-input:focus {
+	border-color: #01CF97;
+	box-shadow: 0 0 5px #01CF97
+}
+.publish-section .section-item {
+	display: none;
+	visibility: hidden;
+	opacity: 0;
+}
+.publish-section .section-item.cur {
+	display: block;
+	visibility: visible;
+	opacity: 1;
+}
+
+.section-item .section-item-title {
+	padding: 1em;
+	margin-bottom: 0.5em;
+	border-bottom: 1px solid #ddd;
+}
+
+.guide-tips {
+	top: 0;
+	right: 0;
+	display: inline-block;
+	padding: 1.2em;
+}

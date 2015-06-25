@@ -1,0 +1,149 @@
+<!doctype html>
+<html class="full-height">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="css/upbang.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="plugins/font-awesome-4.3.0/css/font-awesome.min.css?v=1.0">
+		<title>微信upbang</title>
+	</head>
+	<body class="full-height">
+		<div class="upbang-header full-width pos-fixed" id="upbang-header">
+			<div class="header-info clearfix">
+				<div class="logo fl">
+					<img id="logo-pic" src="">
+				</div>
+				<div class="clearfix msg-wrapper fl">
+					<div class="msg-switch tac fl">
+						<ul id="msg-switch"></ul>
+					</div>
+					<div class="msg-count tac fl">
+						<p>
+							<span id="upbang-msg-total"></span><br>
+							条消息
+						</p>
+					</div>
+				</div>
+				<img id="qr-code" class="qr-code fr" src="images/qr-code.jpg">
+			</div>
+		</div>
+		<div class="upbang-container full-height" id="upbang-container">
+			<div class="upbang-container-info pos-rel">
+				<div class="upbang-box full-width pos-abs" id="upbang-box">
+					<div class="upbang-box-item full-width pos-abs visible" id="upbang-msg-list"></div>
+					<div class="upbang-box-item full-width pos-abs" id="lucky-draw">
+						<div class="content-panel">
+							<div class="content-panel-info bg">
+								<div class="panel-bar">
+									<div class="panel-bar-info pos-rel clearfix tac">
+										<div class="avatar fl">
+											<div class="cycle"><img id="avatar" src="images/qr-code.jpg"></div>
+											<div class="nick" id="nick">123</div>
+										</div>
+										<div class="cycle btn fr trs-all" id="start-draw-btn">开始</div>
+										<div class="desc"><div class="bar">正在抽取<span class="level"></span></div></div>
+									</div>
+									<div class="panel-bar-sub-info tac">
+										<span class="level"></span>
+										：
+										<span class="prize-num"></span>
+										名&nbsp;
+										奖品：
+										<span class="prize"></span>
+									</div>
+								</div>
+								<div class="panel-list" id="tab">
+									<div class="tab-card clearfix">
+
+									</div>
+									<div class="tab-content pos-rel">
+
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="upbang-box-item full-width pos-abs" id="pairing">
+						<div class="content-panel">
+							<div class="content-panel-info bg">
+								<div class="tac">00000</div>
+								<div class="panel-bar">
+									<div class="panel-bar-info pos-rel clearfix tac">
+										<div class="avatar fl">
+											<div class="cycle"><img id="avatar-boy" src="images/qr-code.jpg"></div>
+											<div class="nick" id="nick-boy">123</div>
+										</div>
+										<div class="avatar fr">
+											<div class="cycle"><img id="avatar-girl" src="images/qr-code.jpg"></div>
+											<div class="nick" id="nick-girl">123</div>
+										</div>
+										<div class="desc" style="padding-top: 25px;">
+											<a class="ui-btn" id="start-pairing-btn" href="javascript:;">开始</a>
+										</div>
+									</div>
+								</div>
+								<div class="pairing-list tab-content">
+									<table class="config-table">
+										<thead>
+										<tr>
+										<th class="index">序号</th>
+										<th class="tac">男生</th>
+										<th class="tac"></th>
+										<th class="tac">女生</th>
+										<th class="tac" width="100">操作</th>
+										</tr>
+										</thead>
+										<tbody id="lucky-pairing-list">
+										</tbody>
+									</table>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="upbang-footer full-width pos-fixed tac" id="upbang-footer">
+			<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" data-action="upbang-msg-list" aria-label="上墙"><span class="control-btn trs-all fa fa-newspaper-o"></span></a>
+			<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" data-action="lucky-draw" aria-label="抽奖"><span class="control-btn trs-all fa fa-gift"></span></a>
+			<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" data-action="pairing" aria-label="对对碰"><span class="control-btn trs-all fa fa-heart"></span></a>
+			<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="投票"><span class="control-btn trs-all fa fa-bar-chart"></span></a>
+			<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="签到"><span class="control-btn trs-all fa fa-edit"></span></a>
+			<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="主题"><span class="control-btn trs-all show-or-hide fa fa-th-list"></span></a>
+			<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="全屏/常规"><span class="control-btn trs-all full-or-nomal fa fa-expand"></span></a>
+			<span class="just-for-upbang">
+				<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="到最前"><span class="control-btn trs-all first fa fa-fast-backward"></span></a>
+				<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="上一条"><span class="control-btn trs-all prev fa fa-step-backward"></span></a>
+				<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="自动/暂停"><span class="control-btn trs-all play-or-pause fa fa-play"></span></a>
+				<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="下一条"><span class="control-btn trs-all next fa fa-step-forward"></span></a>
+				<a hidefocus class="tooltipped tooltipped-n" href="javascript:;" aria-label="到最后"><span class="control-btn trs-all last fa fa-fast-forward"></span></a>
+			</span>
+			<div class="hide-icon pos-abs">隐藏</div>
+		</div>
+		<div class="show-icon pos-fixed">显示</div>
+		<div class="theme-preview" id="theme-preview">
+			<div class="theme-preview-list clearfix" id="theme-preview-list">
+				<!-- <a class="theme-preview-item" href="javascript:;" aria-label="新春大宝剑"><img class="trs-all" src="images/default.jpg"></a> -->
+			</div>
+			<div class="theme-feature">
+				<a href="javascript:;" class="fa fa-refresh refresh-theme-preview" title="刷新"></a>
+				<a href="javascript:;" class="fa fa-close close-theme-preview" title="关闭"></a>
+			</div>
+		</div>
+		<div class="lucky-mask">
+			<div class="lucky-block">
+				<img src="images/xlj.jpg">
+				<div class="lucky-info">恭喜<span class="nick">小垃圾</span>获得<span class="lucky-level">一等奖</span></div>
+				<a href="javascript:;" class="ui-btn continue-draw">继续抽奖</a>
+			</div>
+		</div>
+		<script type="text/javascript" src="js/store+json2.min.js?v=1.0"></script>
+		<script type="text/javascript" src="js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="plugins/jquery-tmpl/jquery.tmpl.min.js?v=1.0"></script>
+		<script type="text/javascript" src="js/util.js?v=1.0"></script>
+		<script type="text/javascript" src="js/upbang.static.js?v=1.0"></script>
+	</body>
+</html>

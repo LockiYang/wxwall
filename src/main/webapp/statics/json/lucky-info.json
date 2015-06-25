@@ -1,0 +1,37 @@
+{
+	"success": true,
+	"message": "message",
+	"total": 3,
+	"items": [
+		{
+			"level": "一等奖",
+			"prize": "全套大保健1",
+			"prizePic": "images/qr-code.jpg",
+			"prizeNum": 1,
+			"items": [
+				{ "index":1, "nick": "小红帽", "avatar": "images/qr-code.jpg" }
+			]
+		},
+		{
+			"level": "二等奖",
+			"prize": "全套大保健2",
+			"prizePic": "images/qr-code.jpg",
+			"prizeNum": 2,
+			"items": [
+				{ "index":1, "nick": "小垃圾", "avatar": "images/qr-code.jpg" },
+				{ "index":2, "nick": "小红帽", "avatar": "images/qr-code.jpg" }
+			]
+		},
+		{
+			"level": "三等奖",
+			"prize": "绕全场跑五Q",
+			"prizePic": "images/qr-code.jpg",
+			"prizeNum": 3,
+			"items": [
+				{ "index":1, "nick": "小红帽", "avatar": "images/qr-code.jpg" },
+				{ "index":2, "nick": "小红帽", "avatar": "images/qr-code.jpg" },
+				{ "index":3, "nick": "小红帽", "avatar": "images/qr-code.jpg" }
+			]
+		}
+	]
+}

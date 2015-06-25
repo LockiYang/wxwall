@@ -1,0 +1,181 @@
+<!doctype html>
+<html class="full-height">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/publish.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../plugins/font-awesome-4.2.0/css/font-awesome.min.css?v=1.0">
+		<title>wokao</title>
+	</head>
+	<body class="publish full-height">
+		<div class="publish-header full-width pos-fixed">
+			<div class="publish-header-info pos-rel">
+				<div class="publish-logo">
+					<h1>wokao</h1>
+					<p>活动发布管理系统</p>
+				</div>
+				<div class="nick pos-abs" id="username">nimei++</div>
+			</div>
+		</div>
+		<div class="publish-container">
+			<div class="publish-aside pos-fixed">
+				<div class="publish-aside-info">
+					<h2 class="nav-header">活动管理</h2>
+					<ul class="publish-nav" id="publish-nav">
+						<li class="nav-item cur" data-action="activities"><a class="trs-all" href="#/activities">我的活动</a></li>
+						<li class="nav-item" data-action="publish"><a class="trs-all" href="#/publish">创建活动</a></li>
+						<li class="nav-item" data-action="public-account-setting"><a class="trs-all" href="#/public-account-setting">公众号设置</a></li>
+						
+					</ul>
+				</div>
+			</div>
+			<div class="publish-section" id="publish-section">
+				<!-- 已发布的活动 -->
+				<div class="section-item trs-all cur" data-route="activities">
+					<h2 class="section-item-title">已发布的活动</h2>
+					<div class="">
+						<table class="config-table" id="activity-list">
+							<thead>
+								<tr>
+									<th class="index">序号</th>
+									<th>活动</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+				<!-- /已发布的活动 -->
+
+				<!-- 公众号设置 -->
+				<div class="section-item trs-all" data-route="public-account-setting" id="account-section">
+					<h2 class="section-item-title">公众号设置</h2>
+					<div class="">
+						<div class="field-section field-section-edit trs-all">
+							<form id="init-form" method="post" action="../json/submited-result.json">
+								<table class="field-table">
+									<tr>
+										<td class="tar" width="150">微信号</td>
+										<td><input type="text" class="ui-input trs-all" name="weChatName"></td>
+									</tr>
+									<tr>
+										<td class="tar">AppID(应用ID)</td>
+										<td><input type="text" class="ui-input trs-all" name="weChatID"></td>
+									</tr>
+									<tr>
+										<td class="tar">AppSecret(应用密钥)</td>
+										<td><input type="text" class="ui-input trs-all" name="weChatSecret"></td>
+									</tr>
+									<tr>
+										<td class="tar"></td>
+										<td><button type="submit" class="ui-btn trs-all">提 交</button></td>
+									</tr>
+								</table>
+							</form>
+						</div>
+						<div class="field-section field-section-display trs-all pos-rel">
+							<table class="field-table">
+								<tr>
+									<td class="tar" width="150">微信号</td>
+									<td><span class="ui-input-value trs-all" data-value="weChatName">暂未设置</span></td>
+								</tr>
+								<tr>
+									<td class="tar">AppID(应用ID)</td>
+									<td><span class="ui-input-value trs-all" data-value="weChatID">暂未设置</span></td>
+								</tr>
+								<tr>
+									<td class="tar">AppSecret(应用密钥)</td>
+									<td><span class="ui-input-value trs-all" data-value="weChatSecret">暂未设置</span></td>
+								</tr>
+								<tr>
+									<td class="tar">Token(令牌)</td>
+									<td><span class="ui-input-value trs-all" data-value="token">暂未生成</span></td>
+								</tr>
+								<tr>
+									<td class="tar">ServerUrl(服务器地址)</td>
+									<td><span class="ui-input-value trs-all" data-value="mid">暂未生成</span></td>
+								</tr>
+							</table>
+							<div class="drop-control pos-abs trs-all">
+								<div class="line"></div>
+								<button hidefocus type="button" class="trs-all edit-btn">修 改</button>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- /公众号设置 -->
+
+				<!-- 创建活动 -->
+				<div class="section-item trs-all" data-route="publish">
+					<h2 class="section-item-title">创建活动</h2>
+					<div class="">
+						<form id="formForActivity">
+						<table class="field-table">
+							<tr>
+								<td class="tar" width="80">活动主题</td>
+								<td><input type="text" class="ui-input trs-all" name="subject"></td>
+							</tr>
+							<tr>
+								<td class="tar">开始时间</td>
+								<td><input type="text" class="ui-input trs-all" name="actStart"></td>
+							</tr>
+							<tr>
+								<td class="tar">结束时间</td>
+								<td><input type="text" class="ui-input trs-all"  name="actEnd"></td>
+							</tr>
+							<tr>
+								<td class="tar vot">活动描述</td>
+								<td class="vot"><textarea name="actDesc" class="ui-input vot trs-all"></textarea></td>
+							</tr>
+							
+							<tr>
+								<td class="tar">抽奖</td>
+								<td>
+									<input name="isPrize" type="radio" value="1" checked="checked"/>否
+									<input name="isPrize" type="radio" value="2" />是
+								</td>
+							</tr>
+							<tr>
+								<td class="tar">奖项设置</td>
+								<td>
+									<div>
+									奖 项 名:<input type="text" name="prizeName" class="ui-input trs-all"><br>
+									奖 项 名:<input type="text" name="prizeName" class="ui-input trs-all"><br>
+									奖品描述:<input type="text" name="description" class="ui-input trs-all"><br>
+									<div>
+									奖品图片:<input type="file" onchange="ajaxFileUpload()" name="img" id="img" multiple />
+											<img src="../plugins/AjaxFileUploaderV2.1/loading.gif" id="loading" style="display: none;">
+											<img src="" id="preImg" width="100px" height="100px" />
+									</div>
+									获奖人数:<input type="text" name="winNum" class="ui-input trs-all">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="tar"></td>
+								<td>
+									<button type="submit" class="ui-btn trs-all">提交</button>
+								</td>
+							</tr>
+						</table>
+						</form>
+					</div>
+				</div>
+				<!-- /创建活动 -->
+			</div>
+		</div>
+		<div class="publish-footer"></div>
+		<script type="text/javascript" src="../plugins/director/director.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/jquery-tmpl/jquery.tmpl.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/jquery-form/jquery.form.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/jquery-validate/jquery.validate.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/config-validate.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/util.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/publish-override.js?v=1.0"></script>
+	</body>
+</html>

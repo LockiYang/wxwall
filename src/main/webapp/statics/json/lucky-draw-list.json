@@ -1,0 +1,20 @@
+{
+	"success": true,
+	"message": "message",
+	"total": 100,
+	"items": [
+		{ "id":1, "nick": "小红帽1", "avatar": "images/qr-code.jpg" },
+		{ "id":2, "nick": "小垃圾", "avatar": "images/xlj.jpg" },
+		{ "id":3, "nick": "小红帽3", "avatar": "images/qr-code.jpg" },
+		{ "id":4, "nick": "小垃圾", "avatar": "images/xlj.jpg" },
+		{ "id":5, "nick": "小红帽5", "avatar": "images/qr-code.jpg" },
+		{ "id":6, "nick": "小垃圾", "avatar": "images/xlj.jpg" },
+		{ "id":7, "nick": "小红帽7", "avatar": "images/qr-code.jpg" },
+		{ "id":8, "nick": "小垃圾", "avatar": "images/xlj.jpg" },
+		{ "id":9, "nick": "小红帽9", "avatar": "images/qr-code.jpg" },
+		{ "id":10, "nick": "小垃圾", "avatar": "images/xlj.jpg" },
+		{ "id":11, "nick": "小红帽11", "avatar": "images/qr-code.jpg" },
+		{ "id":12, "nick": "小垃圾", "avatar": "images/xlj.jpg" },
+		{ "id":13, "nick": "小红帽13", "avatar": "images/qr-code.jpg" }
+	]
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache updateCheck="false" name="hibernateCache">
+
+	<diskStore path="java.io.tmpdir/ehcache/wxwall/hibernate" />
+
+	<!-- 
+		maxElementsInMemory: 内存保存元素的最大值
+		eternal: 元素是否永驻内存，忽略超时时间
+		overflowToDisk: 当内存中缓存达到 maxInMemory 限制时元素是否可写到磁盘上
+		timeToIdleSeconds：设置某个元素消亡前的停顿时间
+		timeToLiveSeconds：为元素设置消亡前的生存时间
+		diskPersistent：是否disk store在虚拟机启动时持久化。默认为false
+		diskExpiryThreadIntervalSeconds：运行disk终结线程的时间，默认为120秒
+		memoryStoreEvictionPolicy：缓存清空策略  
+        1.FIFO：first in first out 先讲先出  
+        2.LFU： Less Frequently Used 一直以来最少被使用的  
+        3.LRU：Least Recently Used  最近最少使用的  
+	 -->
+
+	<!-- DefaultCache setting. -->
+	<defaultCache maxElementsInMemory="10000" maxElementsOnDisk="100000" eternal="false"
+		timeToIdleSeconds="300" timeToLiveSeconds="600" overflowToDisk="false" memoryStoreEvictionPolicy="LRU"/>
+
+	<!-- Special objects setting. -->
+	<cache name="com.wxwall.modules.user.entity.User"
+		maxElementsInMemory="1000" eternal="true" memoryStoreEvictionPolicy="LFU" />
+</ehcache>

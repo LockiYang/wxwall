@@ -1,0 +1,165 @@
+<!doctype html>
+<html class="full-height">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/publish.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../plugins/font-awesome-4.2.0/css/font-awesome.min.css?v=1.0">
+		<title>微信upban-活动发布管理</title>
+	</head>
+	<body class="publish full-height">
+		<div class="publish-header full-width pos-fixed">
+			<div class="publish-header-info pos-rel">
+				<div class="publish-logo">
+					<h1>微信upbang</h1>
+					<p>活动发布管理系统</p>
+				</div>
+				<div class="nick pos-abs">nimei++</div>
+			</div>
+		</div>
+		<div class="publish-container">
+			<div class="publish-aside pos-fixed">
+				<div class="publish-aside-info">
+					<h2 class="nav-header">upbang设置</h2>
+					<ul class="publish-nav" id="publish-nav">
+						<li class="nav-item cur" data-action="section1"><a class="trs-all" href="#/section1">公众号设置</a></li>
+						<li class="nav-item" data-action="section2"><a class="trs-all" href="#/section2">公众号信息</a></li>
+						<li class="nav-item" data-action="section3"><a class="trs-all" href="#/section3">创建活动</a></li>
+						<li class="nav-item" data-action="section4"><a class="trs-all" href="#/section4">list</a></li>
+						<li class="nav-item" data-action="section4"><a class="trs-all" href="#/section5">other</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="publish-section" id="publish-section">
+				<div class="section-item trs-all cur" data-route="section1">
+					<h2 class="section-item-title">公众号设置</h2>
+					<div class="">
+						<form id="formForSetWeChat">
+						<table class="field-table">
+							<tr>
+								<td class="tar" width="150">微信号</td>
+								<td><input name="weChatName" type="text" class="ui-input trs-all"></td>
+							</tr>
+							<tr>
+								<td class="tar" width="150">AppID(应用ID)</td>
+								<td><input name="weChatID" type="text" class="ui-input trs-all"></td>
+							</tr>
+							<tr>
+								<td class="tar" width="150">AppSecret(应用密钥)</td>
+								<td><input name="weChatSecret" type="text" class="ui-input trs-all"></td>
+							</tr>
+							<tr>
+								<td class="tar"></td>
+								<td>
+									<button type="submit" class="ui-btn trs-all">提交</button>
+								</td>
+							</tr>
+						</table>
+						</form>
+					</div>
+				</div>
+				<div class="section-item trs-all" data-route="section2">
+					<h2 class="section-item-title">公众号信息</h2>
+					<div class="">
+						<table class="config-table" id="weChatInfo">
+							<thead>
+								<tr>
+									<th>属性名</th>
+									<th>属性值</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+				<div class="section-item trs-all" data-route="section3">
+					<h2 class="section-item-title">创建活动</h2>
+					<div class="">
+						<form id="formForActivity">
+						<table class="field-table">
+							<tr>
+								<td class="tar" width="80">活动主题</td>
+								<td><input type="text" name="subject" class="ui-input trs-all"></td>
+							</tr>
+							<tr>
+								<td class="tar vot">活动描述</td>
+								<td class="vot"><textarea name="actDesc" class="ui-input vot trs-all"></textarea></td>
+							</tr>
+							<tr>
+								<td class="tar vot">开始时间</td>
+								<td class="vot"><input type="text" name="actStart" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="Wdate" style="height: 2.5em;width: 200px"></td>
+							</tr>
+							<tr>
+								<td class="tar vot">结束时间</td>
+								<td class="vot"><input type="text" id="actEndForAddActivity" name="actEnd" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})" class="Wdate" style="height: 2.5em;width: 200px"></td>
+							</tr>
+							<tr>
+								<td class="tar">抽奖</td>
+								<td>
+									<input name="isPrize" type="radio" value="1" checked="checked"/>否
+									<input name="isPrize" type="radio" value="2" />是
+								</td>
+							</tr>
+							<tr>
+								<td class="tar">奖项设置</td>
+								<td>
+									<div>
+									奖 项 名:<input type="text" name="prizeName" class="ui-input trs-all"><br>
+									奖 项 名:<input type="text" name="prizeName" class="ui-input trs-all"><br>
+									奖品描述:<input type="text" name="description" class="ui-input trs-all"><br>
+									<div>
+									奖品图片:<input type="file" onchange="ajaxFileUpload()" name="img" id="img" multiple />
+											<img src="../plugins/AjaxFileUploaderV2.1/loading.gif" id="loading" style="display: none;">
+											<img src="" id="preImg" width="100px" height="100px" />
+									</div>
+									获奖人数:<input type="text" name="winNum" class="ui-input trs-all">
+									</div>
+								</td>
+							</tr>
+							<tr>
+								<td class="tar"></td>
+								<td>
+									<button type="submit" class="ui-btn trs-all">提交</button>
+								</td>
+							</tr>
+						</table>
+						</form>
+					</div>
+				</div>
+
+				<div class="section-item trs-all" data-route="section4">
+					<h2 class="section-item-title">list</h2>
+					<div class="">
+						<table class="config-table" id="activity-list">
+							<thead>
+								<tr>
+									<th class="index">序号</th>
+									<th>活动</th>
+									<th>状态</th>
+								</tr>
+							</thead>
+							<tbody></tbody>
+						</table>
+					</div>
+				</div>
+
+				<div class="section-item trs-all" data-route="section5">
+					<h2 class="section-item-title">other</h2>
+					<div class=""></div>
+				</div>
+			</div>
+		</div>
+		<div class="publish-footer"></div>
+		<script type="text/javascript" src="../plugins/director/director.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/jquery.form.js"></script>
+		<script type="text/javascript" src="../plugins/jquery-tmpl/jquery.tmpl.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/util.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/publish.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/My97DatePicker/WdatePicker.js"></script>
+		<script type="text/javascript" src="../plugins/AjaxFileUploaderV2.1/ajaxfileupload.js"></script>
+	</body>
+</html>

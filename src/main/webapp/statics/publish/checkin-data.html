@@ -1,0 +1,131 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/publish.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../plugins/font-awesome-4.3.0/css/font-awesome.min.css?v=1.0">
+		<title>wokao</title>
+	</head>
+	<body class="publish">
+
+		<!-- publish-header -->
+		<div class="publish-header full-width pos-fixed">
+			<div class="publish-header-info pos-rel clearfix">
+				<div class="logo fl">
+					<h1>抱走丑尼玛</h1>
+					<p>活动发布管理系统</p>
+				</div>
+				<ul class="nav clearfix fl">
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="index.html">首页</a></li>
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="publish.html">申请活动</a></li>
+					<li class="nav-item fl cur"><a hidefocus class="trs-all" href="activities.html">我的活动</a></li>
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="buy.html">套餐购买</a></li>
+				</ul>
+				<div class="pos-abs user-drop-menu">
+					<a hidefocus class="nick trs-all" href="javascript:;">
+						抱走小尼玛&nbsp;
+						<span class="fa fa-caret-down"></span>
+					</a>
+					<div class="items trs-all pos-abs">
+						<div class="item"><a hidefocus class="trs-all" href="public-account-info.html">公众号设置</a></div>
+						<div class="item"><a hidefocus class="trs-all" href="user-info.html">账号信息</a></div>
+						<div class="item"><a hidefocus class="trs-all" href="logout">退出</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /publish-header -->
+
+		<div class="publish-container">
+			<div class="page-wrapper border-box-mode">
+				<div class="page-wrapper-header pos-rel">
+					<span class="icon fa fa-edit fa-3"></span>
+					<span class="text">签到数据</span>
+					<div class="checkin-total pos-abs">签到人数-<span id="checkin-total"></span></div>
+				</div>
+				<div class="publish-section">
+					<table class="checkin-data">
+						<tr>
+							<th width="64" class="tac">头像</th>
+							<th>昵称</th>
+							<th>性别</th>
+							<th>所在地</th>
+							<th>关注状态</th>
+							<th class="tar">签到时间</th>
+						</tr>
+						<tr>
+							<td class="tac"><img class="avatar" src="../images/qr-code.jpg"></td>
+							<td>昵称</td>
+							<td>性别</td>
+							<td>所在地</td>
+							<td>已关注</td>
+							<td class="tar">2015-02-30 12:00</td>
+						</tr>
+						<tr>
+							<td class="tac"><img class="avatar" src="../images/qr-code.jpg"></td>
+							<td>昵称</td>
+							<td>性别</td>
+							<td>所在地</td>
+							<td>未关注</td>
+							<td class="tar">2015-02-30 12:00</td>
+						</tr>
+					</table>
+					<div class="checkin-data-pager">
+						<a class="cur" href="checkin-data.html?page=1">1</a>
+						<a href="checkin-data.html?page=2">2</a>
+					</div>
+				</div>
+				
+				<div class="publish-tabs">
+					<a class="cur" href="javascript:;">未上墙消息</a>
+					<a href="javascript:;">上墙消息</a>
+					<a href="javascript:;">失败消息</a>
+				</div>
+				
+				<div class="publish-section" style="margin:10px 0;">
+					<table class="checkin-data">
+						<tbody>
+						<tr>
+							<td width="64" class="tac"><img class="avatar" src="../images/qr-code.jpg"></td>
+							<td width="250">
+								<span style="display:block;margin: 10px 0;">我是小草</span>
+								<span style="color:#bbb;">发送时间:&nbsp;2015-01-28 15:17:28</span>
+							</td>
+							<td width="400">
+								今天真高兴
+							</td>
+							<td class="tar"><a class="ui-btn" href="#">下墙</a></td>
+						</tr>
+						<tr>
+							<td width="64" class="tac"><img class="avatar" src="../images/qr-code.jpg"></td>
+							<td width="250">
+								<span style="display:block;margin: 10px 0;">我是小草</span>
+								<span style="color:#bbb;">发送时间:&nbsp;2015-01-28 15:17:28</span>
+							</td>
+							<td width="400">
+								今天真高兴
+							</td>
+							<td class="tar"><a class="ui-btn" href="#">下墙</a></td>
+						</tr>
+					</tbody></table>
+				</div>
+				<div class="page-navi fr">
+					<a class="btn" href="#"><i class="fa fa-chevron-left"></i></a>1&nbsp;/&nbsp;10
+					<a class="btn" href="#"><i class="fa fa-chevron-right"></i></a>
+					<input class="tac turn-to-page" type="text">
+					<a class="btn action" href="#">跳转</a>
+				</div>
+				<div class="clearfix"></div>
+			</div>
+		</div>
+		
+		
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/jquery-tmpl/jquery.tmpl.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/util.js?v=1.0"></script>
+	</body>
+</html>

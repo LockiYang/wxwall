@@ -1,0 +1,68 @@
+/* CSS Document */
+/***************共用********/
+.sign_bg{background:#fafafa;}
+.sign-bottom{margin-bottom:20px;}
+
+.top_box{width:100%;background:#e7e7e7; min-height:75px; border-bottom:1px solid #ccc;}
+.top_box .top_box_inner{margin:0 10px; padding:10px 0;}
+.top_box .top_box_inner img{width:55px; height:55px; border-radius:50%; display:block; float:left;}
+.top_box .top_box_inner h3{font-size:16px; color:#5a5a5a; position:relative; padding-left:10px; z-index:10; line-height:25px; max-height:50px; display:block; overflow:hidden;}
+
+.content_box{width:100%;}
+.content_box .content_box_inner{margin:0 10px;}
+.content_box .content_box_inner .w_100{width:100%; display:inline-block; text-align:center;}
+.content_box .content_box_inner .color_gray{color:#666; font-size:14px;}
+.content_box .content_box_inner .sign_text{border-radius:4px; border:1px solid #eee !important; padding:5px 0 5px 5px; line-height:25px; width:100%; box-sizing:border-box;text-align:center; background:none; font-size:14px;}
+.content_box .content_box_inner .sign_btn{background:#00a0c6; color:#fff; width:100%; border:none; display:inline-block; text-align:center; cursor:pointer; line-height:40px; margin-top:20px; border-radius:4px; font-size:14px;}
+.content_box .content_box_inner .sign-select{ border:1px solid #eee !important;}
+
+
+.content_box .content_box_inner .Suc-top{ background:url(sign-topimg.png)/*tpa=http://3188.la/images_2014/sign-topimg.png*/ no-repeat left top; background-size:100% auto; padding:1.2% 2.5% 0 2.8%; height:auto;}
+.content_box .content_box_inner .Suc-top .Suc-top-in{ background:#00a0c6; text-align:center; padding:5px 0;}
+.content_box .content_box_inner .Suc-top .Suc-top-in img{width:55px; height:55px; border-radius:50%; display:inline-block; margin:5px;}
+.content_box .content_box_inner .Suc-top .Suc-top-in .user_name{display:block; color:#fff; font-size:14px; font-weight:bold;}
+.content_box .content_box_inner .Suc-mid{background:url(sign-midimg.png)/*tpa=http://3188.la/images_2014/sign-midimg.png*/ no-repeat left top; background-size:100% 100%; text-align:center; font-size:16px;color:#00a0c6; line-height:65px; height:65px;}
+.content_box .content_box_inner .Suc-bot{background:url(sign-botimg.png)/*tpa=http://3188.la/images_2014/sign-botimg.png*/ no-repeat left bottom; background-size:100% auto; padding:0 2.5% 7% 2.5%; }
+.content_box .content_box_inner .Suc-bot ul{border-left:1px solid #eee; border-right:1px solid #eee; padding:10px; min-height:205px;}
+.content_box .content_box_inner .Suc-bot ul li{padding-top:5px;}
+.content_box .content_box_inner .Suc-bot ul li span{display:inline-block;}
+.content_box .content_box_inner .Suc-bot ul li span:last-child{color:#999;}
+
+.content_box .content_box_inner .Error-box img{display:block; margin:20px auto;width:55px; height:55px; border-radius:50%;}
+.content_box .content_box_inner .Error-box h3{font-size:16px; font-weight:bold; text-align:center; line-height:25px;}
+
+#WeiXinBackTips,#WeiXinShareTips,#divSendSMSContainer {
+	position: fixed;
+	z-index: 1000;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(100, 100, 100, .8);
+}
+
+#WeiXinBackTips img {
+	position: fixed;
+	bottom: 0;
+}
+
+#WeiXinShareTips img {
+	position: fixed;
+	right: 0;
+}
+/*编辑器隐藏工具栏*/
+.edui-container {
+	box-shadow: none;
+}
+
+.edui-container .edui-toolbar {
+	display: none;
+}
+
+.timepicker[readonly] {
+	background-color: #FFF;
+}
+
+.letterunreadmsg {
+	display: none;
+}

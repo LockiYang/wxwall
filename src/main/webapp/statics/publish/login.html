@@ -1,0 +1,67 @@
+<!doctype html>
+<html class="full-height">
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/publish.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/submit.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../plugins/font-awesome-4.3.0/css/font-awesome.min.css?v=1.0">
+		<title>register</title>
+	</head>
+	<body class="publish">
+		<div class="publish-header full-width pos-fixed">
+			<div class="publish-header-info pos-rel">
+				<div class="publish-logo">
+					<h1>抱走王尼玛</h1>
+					<p>活动发布管理系统</p>
+				</div>
+				<a hidefocus class="guide-tips pos-abs" href="register.html">还没有帐号?</a>
+			</div>
+		</div>
+		<div class="login">
+			<form id="login-form" method="post" action="index.html">
+				<table class="full-width no-border">
+					<tr>
+						<td class="tar" width="60">用户名</td>
+						<td><input type="text" class="ui-input trs-all" name="username" autofocus></td>
+					</tr>
+					<tr>
+						<td class="tar">密　码</td>
+						<td><input type="password" class="ui-input trs-all" name="password" id="password"></td>
+					</tr>
+					<tr>
+						<td class="tar"></td>
+						<td><button type="submit" class="ui-btn trs-all">登 录</button></td>
+					</tr>
+				</table>
+			</form>
+		</div>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/jquery-validate/jquery.validate.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/util.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/config-validate.js?v=1.0"></script>
+		<script type="text/javascript">
+			$(function () {
+				$("#login-form").validate({
+			        rules: {
+						username: {
+							required: true
+						},
+						password: {
+							required: true,
+							minlength: 8
+						}
+					},
+					messages: {
+						password: {
+							minlength: '密码长度不能小于8个字符'
+						}
+					}
+			    });
+			});
+		</script>
+	</body>
+</html>

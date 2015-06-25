@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+	<head>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<link rel="shortcut icon" href="icons/favicon.ico" type="image/x-icon">
+		<link rel="stylesheet" type="text/css" href="../css/reset.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/common.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../css/publish.css?v=1.0">
+		<link rel="stylesheet" type="text/css" href="../plugins/font-awesome-4.3.0/css/font-awesome.min.css?v=1.0">
+		<title>wokao</title>
+	</head>
+	<body class="publish">
+
+		<!-- publish-header -->
+		<div class="publish-header full-width pos-fixed">
+			<div class="publish-header-info pos-rel clearfix">
+				<div class="logo fl">
+					<h1>抱走王尼玛</h1>
+					<p>活动发布管理系统</p>
+				</div>
+				<ul class="nav clearfix fl">
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="index.html">首页</a></li>
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="publish.html">申请活动</a></li>
+					<li class="nav-item fl"><a hidefocus class="trs-all" href="activities.html">我的活动</a></li>
+					<li class="nav-item fl cur"><a hidefocus class="trs-all" href="buy.html">套餐购买</a></li>
+				</ul>
+				<div class="pos-abs user-drop-menu">
+					<a hidefocus class="nick trs-all" href="javascript:;">
+						抱走小尼玛&nbsp;
+						<span class="fa fa-caret-down"></span>
+					</a>
+					<div class="items trs-all pos-abs">
+						<div class="item"><a hidefocus class="trs-all" href="public-account-info.html">公众号设置</a></div>
+						<div class="item"><a hidefocus class="trs-all" href="user-info.html">账号信息</a></div>
+						<div class="item"><a hidefocus class="trs-all" href="logout">退出</a></div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /publish-header -->
+
+		<div class="publish-container">
+			<div class="page-wrapper border-box-mode">
+				<div class="page-wrapper-header">
+					<span class="icon fa fa-shopping-cart fa-3"></span>
+					<span class="text">套餐购买<span>
+				</div>
+				<div class="publish-section">
+					coming soon...
+				</div>
+			</div>
+		</div>
+		<script type="text/javascript" src="../js/jquery-1.11.1.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../plugins/jquery-validate/jquery.validate.min.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/config-validate.js?v=1.0"></script>
+		<script type="text/javascript" src="../js/util.js?v=1.0"></script>
+		<script type="text/javascript">
+			$(function () {
+				$("#publish-form").validate({
+			        rules: {
+						actTitle: 'required',
+						wxAccount: 'required',
+						what1: 'required',
+						what2: 'required',
+						what3: 'required',
+						what4: 'required',
+						what5: 'required',
+						what6: 'required',
+						what7: 'required'
+					}
+			    });
+			})
+		</script>
+	</body>
+</html>
